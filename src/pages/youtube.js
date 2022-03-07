@@ -3,9 +3,9 @@ import styled from "styled-components";
 import NewPosts from "../components/newPosts";
 import { useRecoilValue } from 'recoil';
 import { Data } from '../atom';
+import YoutubeCards from "../components/YoutubeCards";
 
-const MainContainer = styled.div`
-`
+const MainContainer = styled.div``;
 
 const Youtube = () => {
   const data = useRecoilValue(Data);
@@ -13,9 +13,10 @@ const Youtube = () => {
 
   return (
     <MainContainer>
-      <NewPosts posts={MainPosts} />
+      <NewPosts />
+      <YoutubeCards posts={MainPosts} />
     </MainContainer>
-  )
+  );
 };
 
 export default Youtube;
