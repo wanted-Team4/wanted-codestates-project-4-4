@@ -1,7 +1,12 @@
 import React from "react";
+import NewPosts from "../components/newPosts";
 
 const Youtube = () => {
-  return <div>Youtube</div>;
+  return (
+    <>
+      <NewPosts />
+    </>
+  )
 };
 
 export default Youtube;
