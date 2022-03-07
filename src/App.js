@@ -46,7 +46,7 @@ function App() {
 
         <Container>
           {/* <ContentBox> */}
-          {/* 합치면서 레이아웃이 깨져서 임시적으로 주석처리 해놨습니다~ 마지막에 다시 보완하면 좋을것 같아요*/}
+          {/* 합치면서 레이아웃이 깨져서 임시적으로 주석처리 해놨습니다~ 마지막에 다시 정리하면 좋을것 같아요*/}
           <T>
             <Routes>
               <Route exact path="/" element={<Youtube />} />
