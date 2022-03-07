@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     defaultClient();
     console.log(atomData, "all");
-  }, []);
+  }, [atomData]);
   console.log(sector, "sector");
   console.log(content, "content");
 
