@@ -1,7 +1,12 @@
 import React from "react";
+import NewPosts from "../components/newPosts";
 
 const Insight = () => {
-  return <div>Insight</div>;
+  return (
+    <>
+      <NewPosts />
+    </>
+  )
 };
 
 export default Insight;
