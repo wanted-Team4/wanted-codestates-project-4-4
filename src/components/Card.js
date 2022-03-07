@@ -4,7 +4,8 @@ import styled from "styled-components";
 const CardContainer = styled.div`
   width: 100%;
   height: auto;
-  background: pink;
+  background: #fff;
+  border: 1px solid #333;
 `;
 
 const Card = ({ children }) => {

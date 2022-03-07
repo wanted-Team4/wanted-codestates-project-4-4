@@ -6,12 +6,35 @@ import Card from "./Card";
 const CardsContainer = styled.div`
   display: grid;
   grid: auto-flow/1fr 1fr 1fr;
+  grid-gap: 10px;
   img {
     width: 100%;
     height: 50%;
   }
   h1 {
     font-size: 1rem;
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const InfoRight = styled.div`
+  display: flex;
+  div {
+    span {
+      display: inline-block;
+      margin: 0 5px;
+    }
+    margin: 0 10px;
+  }
+  a {
+    display: inline-block;
+    span {
+      margin: 0 5px;
+    }
   }
 `;
 
@@ -110,15 +133,26 @@ const InsightCardList = () => {
 
   return (
     <CardsContainer>
-      {content.map((card, i) => (
-        <Card key={i}>
-          <img src={content[i].image} alt="content 이미지" />
-          <h1>{content[i].title}</h1>
-          <span>{content[i].upload_date}</span>
-          <div>{/* 좋아요 */}</div>
-          <div>{/* 공유하기 */}</div>
-        </Card>
-      ))}
+      {content &&
+        content.map((card, i) => (
+          <Card key={i}>
+            <img src={content[i].image} alt="content 이미지" />
+            <h1>{content[i].title}</h1>
+            <Info>
+              <span>{content[i].upload_date}</span>
+              <InfoRight>
+                <div>
+                  <i className="fa-solid fa-heart"></i>
+                  <span>0</span>
+                </div>
+                <a href="www.naver.com/">
+                  <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                  <span>공유</span>
+                </a>
+              </InfoRight>
+            </Info>
+          </Card>
+        ))}
     </CardsContainer>
   );
 };
