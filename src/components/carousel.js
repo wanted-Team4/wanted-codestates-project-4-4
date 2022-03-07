@@ -8,25 +8,38 @@ const StyledSlider = styled(Slider)`
   box-shadow: 1px 0px 9px 3px rgba(84,84,84,0.41);
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+
   .slick-arrow {
     z-index: 10;
   }
     .slick-prev{
       left:-4rem;
+      @media screen and  (max-width:400px) {
+        left:-1rem;
+      }
       :before {
       opacity: 1;
       color: #669cff;
       left: 0;
       font-size: 2rem;
+      @media screen and  (max-width:400px) {
+        font-size: 1.5rem;
+        }
       }
     }
     
   .slick-next{
     right:-3rem;
+    @media screen and  (max-width:400px) {
+        right:-0.7rem;
+      }
     :before {
       opacity: 1;
       color: #669cff;
       font-size: 2rem;
+      @media screen and  (max-width:400px) {
+        font-size: 1.5rem;
+      }
     }
   }
   .slick-dots{
@@ -46,20 +59,31 @@ const ImageContainer = styled.div`
   margin: 0 auto;
   width:100%;
   height:30rem;
+  @media screen and  (max-width:400px) {
+    height:27rem;
+  }
 `;
 
 const Image = styled.img`
   width:100%;
   height:30rem;
+  @media screen and  (max-width:400px) {
+    height:20rem;
+  }
 `;
 
 const ContentBox = styled.div`
   margin: 0 1rem;
-
+  @media screen and  (max-width:400px) {
+    margin: 0 0.5rem;
+  }
 `
 const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 700;
+  @media screen and  (max-width:400px) {
+      font-size: 1.1rem;
+  }
 `
 const ButtonBox = styled.div`
   display: flex;
@@ -68,9 +92,22 @@ const ButtonBox = styled.div`
 `
 const Like = styled.div`
   width:3rem;
+  color: #9D9D9D;
+  @media screen and  (max-width:400px) {
+      width:2.5rem;
+  }
 `
 const Share = styled.p`
-  width: 5rem;
+  width: 3rem;
+  font-weight: 500;
+  color: #9D9D9D;
+  @media screen and  (max-width:400px) {
+    width: 3rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+`
+const Link = styled.a`
 `
 
 const Carousel = ({ posts }) => {
@@ -83,24 +120,23 @@ const Carousel = ({ posts }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '0px'
-    // beforeChange: (current, next) => setCenterCard(next),
-    // responsive: [
-    //   {
-    //     breakpoint: 740,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       slidesToScroll: 1,
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 450,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1,
-    //     }
-    //   }
-    // ]
+    centerPadding: '0px',
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   return (
@@ -117,10 +153,12 @@ const Carousel = ({ posts }) => {
                     <i className="fa-solid fa-heart"></i>
                     {' '}0
                   </Like>
-                  <Share>
-                    <i className="fa-solid fa-arrow-up-from-bracket"></i>
-                    {' '}공유하기
-                  </Share>
+                  <Link href="http://google.co.kr" target="_blank">
+                    <Share>
+                      <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                      {'  '}공유
+                    </Share>
+                  </Link>
                 </ButtonBox>
               </ContentBox>
             </ImageContainer>
