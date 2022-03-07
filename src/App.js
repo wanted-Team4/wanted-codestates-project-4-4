@@ -6,21 +6,26 @@ import Insight from "./pages/insight";
 import Column from "./pages/column";
 import PcNav from "./layout/PcNav";
 import styled from "styled-components";
+import Subscribe from "./components/Subscribe";
 
 function App() {
   return (
-    <BrowserRouter>
-      <PcNav />
-      <Container>
-        <ContentBox>
-          <Routes>
-            <Route exact path="/" element={<Youtube />} />
-            <Route exact path="column" element={<Column />} />
-            <Route exact path="insight" element={<Insight />} />
-          </Routes>
-        </ContentBox>
-      </Container>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <PcNav />
+
+        <Container>
+          <ContentBox>
+            <Routes>
+              <Route exact path="/" element={<Youtube />} />
+              <Route exact path="column" element={<Column />} />
+              <Route exact path="insight" element={<Insight />} />
+            </Routes>
+          </ContentBox>
+          <Subscribe />
+        </Container>
+      </BrowserRouter>
+    </>
   );
 }
 
