@@ -81,6 +81,7 @@ const ContentBox = styled.div`
 const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 700;
+  height: 4rem;
   @media screen and  (max-width:400px) {
       font-size: 1.1rem;
   }
@@ -145,7 +146,9 @@ const Carousel = ({ posts }) => {
         return (
           <div key={post.id}>
             <ImageContainer>
-              <Image src={post.url} />
+              <Link href={post.link} target="_blank" rel="noreferrer">
+                <Image src={post.image} />
+              </Link>
               <ContentBox>
                 <Title>{post.title}</Title>
                 <ButtonBox>
