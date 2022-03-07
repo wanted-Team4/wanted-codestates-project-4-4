@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 //import React from "react";
-import Index from "./index";
+// import Index from "./index";
 import Youtube from "./pages/youtube";
 import Insight from "./pages/insight";
 import Column from "./pages/column";
 import PcNav from "./layout/PcNav";
 import styled from "styled-components";
-import Subscribe from "./components/Subscribe";
+// import Subscribe from "./components/Subscribe";
 import React, { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { Data } from "./atom";
