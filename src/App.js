@@ -40,4 +40,7 @@ const ContentBox = styled.div`
   margin: 0 auto;
   height: 100vh;
   background-color: #fff;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
