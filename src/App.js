@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 import Index from "./index";
-import Youtube from "./pages/youtueb";
+import Youtube from "./pages/youtube";
 import Insight from "./pages/insight";
 import Column from "./pages/column";
 import PcNav from "./layout/PcNav";
