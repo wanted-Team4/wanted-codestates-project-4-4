@@ -1,7 +1,8 @@
 import React from "react";
+import YoutubeCards from "../components/YoutubeCards";
 
 const Youtube = () => {
-  return <div>Youtube</div>;
+  return <YoutubeCards />;
 };
 
 export default Youtube;

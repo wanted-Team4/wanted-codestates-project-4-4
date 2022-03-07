@@ -1,7 +1,8 @@
 import React from "react";
+import ColumnCards from "../components/ColumnCards";
 
 const Column = () => {
-  return <div>column</div>;
+  return <ColumnCards />;
 };
 
 export default Column;
