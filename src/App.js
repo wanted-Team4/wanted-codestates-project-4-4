@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React from "react";
+//import React from "react";
 import Index from "./index";
 import Youtube from "./pages/youtube";
 import Insight from "./pages/insight";
@@ -7,8 +7,38 @@ import Column from "./pages/column";
 import PcNav from "./layout/PcNav";
 import styled from "styled-components";
 import Subscribe from "./components/Subscribe";
-
+import React, { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { Data } from "./atom";
+import axios from "axios";
 function App() {
+  const [atomData, setAtomData] = useRecoilState(Data);
+  const [sector, setSector] = useState(atomData.sector);
+  const [content, setContent] = useState(atomData.content);
+  const quest = "info/contents/";
+
+  const defaultClient = () => {
+    axios
+      .get(`https://test.daground.io/${quest}`, {
+        headers: {
+          "TEST-AUTH": `wantedpreonboarding`,
+        },
+      })
+      .then((res) => {
+        setAtomData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    defaultClient();
+    console.log(atomData, "all");
+  }, []);
+  console.log(sector, "sector");
+  console.log(content, "content");
+
   return (
     <>
       <BrowserRouter>
