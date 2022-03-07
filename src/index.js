@@ -12,11 +12,18 @@ body {
   color: black;
   line-height: 1.2;
   background-color: white;
+  margin: 0;
 }
 a {
   text-decoration:none;
   color:inherit;
 }
+ul {
+    list-style: none;
+    margin: 0;
+}
+
+
 `;
 
 ReactDOM.render(
