@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { useParams } from "react-router-dom";
 import { Data } from "../atom";
-
-const Detail = () => {
+import Like from "../components/Like";
+import PropTypes from "prop-types";
+const Detail = ({}) => {
   const [atomData, setAtomData] = useRecoilState(Data);
   const [detail, setDetail] = useState();
   const [loading, setLoading] = useState(false);
@@ -21,58 +22,6 @@ const Detail = () => {
   }, [atomData]);
 
   console.log(detail);
-
-  const Likes = (id) => {
-    // 좋아요 기능
-    let like_cnt = 0;
-    let like_bool = false;
-
-    if (localStorage.getItem(id)) {
-      const more = JSON.parse(localStorage.getItem(id))[0];
-      like_cnt += more;
-      like_bool = JSON.parse(localStorage.getItem(id))[1];
-    }
-
-    const [LikeNums, setLikeNums] = useState(like_cnt);
-    const [LikeBools, setLikeBools] = useState(like_bool);
-
-    const LikeClick = () => {
-      if (!LikeBools) {
-        /* 좋아요를 누르지 않은 경우 */
-        setLikeBools(!LikeBools);
-        setLikeNums(LikeNums + 1);
-        if (localStorage.getItem(id)) {
-          const more = JSON.parse(localStorage.getItem(id))[0];
-          localStorage.setItem(id, JSON.stringify([more + 1, true]));
-        } else {
-          localStorage.setItem(id, JSON.stringify([1, true]));
-        }
-      } else {
-        /* 좋아요를 누른 경우 */
-        setLikeBools(!LikeBools);
-        setLikeNums(LikeNums - 1);
-        const more = JSON.parse(localStorage.getItem(id))[0];
-        localStorage.setItem(id, JSON.stringify([more - 1, false]));
-      }
-    };
-    return (
-      <>
-        <Like onClick={LikeClick}>
-          <i
-            style={{ verticalAlign: "baseline", marginLeft: "10px" }}
-            className="fa-solid fa-heart"
-          ></i>
-          {LikeNums}
-          <i
-            style={{ verticalAlign: "baseline" }}
-            className="fa-solid fa-arrow-up-from-bracket"
-          ></i>
-          공유하기
-        </Like>
-      </>
-    );
-  };
-
   return (
     <Warraper>
       {loading ? (
@@ -98,7 +47,16 @@ const Detail = () => {
             )}
             <Title>{detail[0].title}</Title>
             <Body>{detail[0].body}</Body>
-            <Likes></Likes>
+            <LikeAndShare>
+              <Like id={detail.id} likeCnt={detail.likeCnt}></Like>
+              <Share>
+                <i
+                  style={{ verticalAlign: "baseline" }}
+                  className="fa-solid fa-arrow-up-from-bracket"
+                ></i>
+                공유
+              </Share>
+            </LikeAndShare>
             {detail[0].sector_id !== 2 ? (
               <Open>
                 <a href={detail[0].link} target="_blank">
@@ -181,8 +139,7 @@ const Iframe = styled.iframe`
     height: 30rem;
   }
 `;
-
-const Like = styled.div`
+const LikeAndShare = styled.div`
   display: flex;
   text-align: right;
   font-size: 1.2rem;
@@ -190,7 +147,18 @@ const Like = styled.div`
   color: gray;
   justify-content: space-around;
   align-self: flex-end;
-  width: 10rem;
+  width: 7rem;
+`;
+
+const Share = styled.div`
+  width: 9rem;
+  font-weight: 500;
+  color: #9d9d9d;
+  @media screen and (max-width: 450px) {
+    width: 3rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
 `;
 
 const Open = styled.span`

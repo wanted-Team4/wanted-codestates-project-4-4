@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import Like from "./Like";
 
 const StyledSlider = styled(Slider)`
   margin: 0 auto;
@@ -112,22 +112,9 @@ const ButtonBox = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
-const Like = styled.div`
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: transform ease 1s;
-  color: ${(props) => (props.color ? "#aaa" : "red")};
-  font-weight: 400;
-  padding-right: 20px;
 
-  .fa-heart {
-    color: ${(props) => (props.color ? "#aaa" : "red")};
-    margin-right: 3px;
-    transform: scale(1.2);
-  }
-`;
 const Share = styled.p`
-  width: 3rem;
+  width: 3.5rem;
   font-weight: 500;
   color: #9d9d9d;
   @media screen and (max-width: 450px) {
@@ -137,49 +124,6 @@ const Share = styled.p`
   }
 `;
 const LinkTo = styled.a``;
-
-const Likes = (id) => {
-  // 좋아요 기능
-  let like_cnt = 0;
-  let like_bool = false;
-
-  if (localStorage.getItem(id)) {
-    const more = JSON.parse(localStorage.getItem(id))[0];
-    like_cnt += more;
-    like_bool = JSON.parse(localStorage.getItem(id))[1];
-  }
-
-  const [LikeNums, setLikeNums] = useState(like_cnt);
-  const [LikeBools, setLikeBools] = useState(like_bool);
-
-  const LikeClick = () => {
-    if (!LikeBools) {
-      /* 좋아요를 누르지 않은 경우 */
-      setLikeBools(!LikeBools);
-      setLikeNums(LikeNums + 1);
-      if (localStorage.getItem(id)) {
-        const more = JSON.parse(localStorage.getItem(id))[0];
-        localStorage.setItem(id, JSON.stringify([more + 1, true]));
-      } else {
-        localStorage.setItem(id, JSON.stringify([1, true]));
-      }
-    } else {
-      /* 좋아요를 누른 경우 */
-      setLikeBools(!LikeBools);
-      setLikeNums(LikeNums - 1);
-      const more = JSON.parse(localStorage.getItem(id))[0];
-      localStorage.setItem(id, JSON.stringify([more - 1, false]));
-    }
-  };
-  return (
-    <>
-      <Like onClick={LikeClick} color={!LikeBools}>
-        <i className="fa-solid fa-heart"></i>
-        {LikeNums}
-      </Like>
-    </>
-  );
-};
 
 const Carousel = ({ posts }) => {
   const settings = {
@@ -236,7 +180,7 @@ const Carousel = ({ posts }) => {
                 </LinkTo>
               )}
               <ButtonBox>
-                <Likes />
+                <Like id={posts.id} likeCnt={posts.likeCnt} />
                 {post.sector_id !== 1 ? (
                   <Link to={`/detail/${post.id}`} target="_blank">
                     <Share>
