@@ -14,7 +14,7 @@ const Container = styled.div`
 const Image = styled.div`
   width: 100%;
   height: 20vh;
-  background: #999;
+  background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 
   img {
