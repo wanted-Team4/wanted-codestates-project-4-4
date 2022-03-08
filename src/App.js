@@ -6,6 +6,7 @@ import Insight from "./pages/insight";
 import Column from "./pages/column";
 import PcNav from "./layout/PcNav";
 import styled from "styled-components";
+import Detail from "./pages/Detail";
 // import Subscribe from "./components/Subscribe";
 import React, { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
@@ -43,9 +44,6 @@ function App() {
   useEffect(() => {
     defaultClient();
   }, []);
-  console.log(atomData, "all");
-  console.log(content);
-  console.log(sector);
 
   return (
     <>
@@ -62,6 +60,7 @@ function App() {
               <Route exact path="/" element={<Youtube />} />
               <Route exact path="column" element={<Column />} />
               <Route exact path="insight" element={<Insight />} />
+              <Route exact path="detail/:id" element={<Detail />} />
             </Routes>
             {/* </ContentBox>
           <Subscribe /> */}
