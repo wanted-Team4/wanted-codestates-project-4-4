@@ -90,3 +90,4 @@
 |   <a href="https://github.com/sunysty">석지선</a>   |       더보기 / 카드리스트 컴포넌트 / 배포       |
 |   <a href="https://github.com/slobbie">정해석</a>   |       전체 레이아웃 / 상단 Tab / 구독하기       |
 |  <a href="https://github.com/hasunghwa">하성화</a>  |                   상세 페이지                   |
+
