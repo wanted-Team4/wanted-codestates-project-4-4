@@ -53,14 +53,12 @@ const App = () => {
         <Container>
           {loading === false ? <Loading></Loading> : null}
 
-          <T>
-            <Routes>
-              <Route exact path="/" element={<Youtube />} />
-              <Route exact path="column" element={<Column />} />
-              <Route exact path="insight" element={<Insight />} />
-              <Route exact path="detail/:id" element={<Detail />} />
-            </Routes>
-          </T>
+          <Routes>
+            <Route exact path="/" element={<Youtube />} />
+            <Route exact path="column" element={<Column />} />
+            <Route exact path="insight" element={<Insight />} />
+            <Route exact path="detail/:id" element={<Detail />} />
+          </Routes>
         </Container>
       </BrowserRouter>
     </>
@@ -72,9 +70,4 @@ export default App;
 const Container = styled.section`
   width: 100%;
   height: 100vh;
-`;
-
-const T = styled.div`
-  width: 70vw;
-  margin: 0 auto;
 `;

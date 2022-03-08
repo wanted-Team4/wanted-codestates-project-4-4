@@ -4,56 +4,23 @@ import { useRecoilState } from "recoil";
 import { Data } from "../atom";
 import Card from "./Card";
 import CardGrid from "./CardGrid";
+import Title from "./Title";
 
 const Button = styled.div`
-  background: #669cff;
-  color: #fff;
+  transition: all ease 0.25s;
+  background: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  border: 1px solid #669cff;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 400;
   width: 30%;
   height: 60px;
   margin: 0 auto;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-`;
-
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h1 {
-    font-weight: 700;
-    font-size: 1.7rem;
-    margin-bottom: 1.5rem;
-    @media screen and (max-width: 400px) {
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-  }
-
-  div {
-    margin-left: 0.5rem;
-    border-radius: 0.3rem;
-    background-color: #669cff;
-    padding: 0.3rem;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: #fff;
-    @media screen and (max-width: 400px) {
-      padding: 0.2rem;
-      font-size: 0.5rem;
-    }
-  }
-`;
-
-const Alert = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
 `;
 
 const YoutubeCards = () => {
@@ -64,10 +31,7 @@ const YoutubeCards = () => {
 
   return (
     <>
-      <Title>
-        <h1>유튜브</h1>
-        <div>New</div>
-      </Title>
+      <Title name={"유튜브"} type={"News"} />
       {more ? (
         <>
           <CardGrid>
@@ -81,11 +45,14 @@ const YoutubeCards = () => {
                     date={youtubeData[i].upload_date}
                     like={youtubeData[i].like_cnt}
                     id={youtubeData[i].id}
+                    sector={youtubeData[i].sector_id}
                     key={i}
                   />
                 ))}
           </CardGrid>
-          <Button onClick={() => setMore(false)}>더보기</Button>
+          <Button onClick={() => setMore(false)} bg={"#669cff"} color={"#fff"}>
+            더보기
+          </Button>
         </>
       ) : (
         <>
@@ -99,13 +66,15 @@ const YoutubeCards = () => {
                     date={youtubeData[i].upload_date}
                     like={youtubeData[i].like_cnt}
                     id={youtubeData[i].id}
+                    sector={youtubeData[i].sector_id}
                     key={i}
                   />
                 </>
               ))}
           </CardGrid>
-          <Alert>끝 입니다</Alert>
-          <Button onClick={() => setMore(true)}>접기</Button>
+          <Button onClick={() => setMore(true)} bg={"#fff"} color={"#669cff"}>
+            접기
+          </Button>
         </>
       )}
     </>
