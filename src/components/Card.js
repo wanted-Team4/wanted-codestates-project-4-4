@@ -1,39 +1,83 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardContainer = styled.div`
-  width: 100%;
-  height: auto;
-  background: #fff;
-  border: 1px solid #333;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
-const Card = ({ children }) => {
-  return <CardContainer>{children}</CardContainer>;
+const Image = styled.img`
+  width: 100%;
+  height: 70%;
+`;
+
+const Content = styled.div`
+  padding: 10px;
+  box-sizing: border;
+`;
+
+const Title = styled.h1`
+  font-size: 0.9rem;
+  padding-bottom: 20px;
+  box-sizing: border;
+`;
+
+const Ect = styled.div`
+  display: grid;
+  grid: auto-flow/ 1.5fr 0.5fr 0.5fr;
+  box-sizing: border;
+`;
+
+const Date = styled.div`
+  font-size: 0.8rem;
+`;
+
+const Like = styled.div`
+  font-size: 0.8rem;
+  .fa-heart {
+    color: #aaa;
+  }
+  span {
+    font-weight: 500;
+    padding: 5px;
+    color: #aaa;
+  }
+`;
+
+const Share = styled.div`
+  font-size: 0.8rem;
+  color: #aaa;
+
+  span {
+    font-weight: 500;
+    padding: 5px;
+    color: #aaa;
+  }
+`;
+const Card = ({ src, title, date, id, like }) => {
+  console.log({ like });
+  return (
+    <Container>
+      <Image src={src} alt={`img${id}`} />
+      <Content>
+        <Title>{title}</Title>
+        <Ect>
+          <Date>{date}</Date>
+          <Like>
+            <i className="fa-solid fa-heart"></i>
+            <span>{like}</span>
+          </Like>
+          <Share>
+            <i className="fa-solid fa-arrow-up-from-bracket"></i>
+            <span>공유</span>
+          </Share>
+        </Ect>
+      </Content>
+    </Container>
+  );
 };
 
 export default Card;
-
-//스타일
-// const ResponsiveContainer = styled.div`
-//   //데스크탑
-//   @media screen and (min-width: 1025px) {
-//     body {
-//       color: red;
-//     }
-//   }
-
-//   // 태블릿
-//   @media screen and (min-width: 768px) {
-//     body {
-//       color: blue;
-//     }
-//   }
-
-//   //모바일
-//   @media screen and(max-width:320px) {
-//     body {
-//       color: yellow;
-//     }
-//   }
-// `;
