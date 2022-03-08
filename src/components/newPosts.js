@@ -52,7 +52,7 @@ const Tag = styled.div`
   }
 `
 
-const NewPosts = () => {
+const NewPosts = ({ }) => {
   const posts = [
     { id: 1, title: '블록체인 NOW', url: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80" },
     { id: 2, title: '블록체인 NOW', url: "https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80" },

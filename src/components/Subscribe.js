@@ -21,10 +21,11 @@ function Subscribe() {
 export default Subscribe;
 
 const SubScribeContainer = styled.section`
-  width: 100%;
+  width: 58%;
   height: 100px;
   display: flex;
   align-items: center;
+  margin: 0 auto;
   justify-content: space-around;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -38,19 +39,19 @@ const SubscribeDescription = styled.div`
   flex-direction: column;
   .description__desc {
     margin: 0;
-    color: ${({ theme }) => theme.colors.darkGray};
+    color: black;
   }
   .description__title {
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.colors.lightBlue};
+    color: black;
     margin: 0;
   }
 `;
 
 const SubscribButton = styled.button`
   width: 100px;
-  color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.lightBlue};
+  color: #fff;
+  background: #669cff;
   border: none;
   border-radius: 20px;
   padding: 0.8rem 0;
