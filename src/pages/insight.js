@@ -10,12 +10,12 @@ const MainContainer = styled.div``;
 
 const Insight = () => {
   const data = useRecoilValue(Data);
-  const MainPosts = data.content?.filter((el) => el.sector_id === 3 && el.like_top === 1);
+  const posts = data.content?.filter((el) => el.sector_id === 3 && el.like_top === 1);
 
   return (
     <MainContainer>
-      <NewPosts />
-      <InsightCards posts={MainPosts} />;
+      <NewPosts posts={posts} />
+      <InsightCards />;
     </MainContainer>
   );
 };
