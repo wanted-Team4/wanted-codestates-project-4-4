@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //스타일
 const Container = styled.div`
@@ -15,6 +15,8 @@ const Image = styled.div`
   width: 100%;
   height: 20vh;
   background: #999;
+  cursor: pointer;
+
   img {
     width: 100%;
     height: 100%;
@@ -57,6 +59,7 @@ const Like = styled.div`
 const Share = styled.div`
   font-size: 0.8rem;
   color: #aaa;
+  cursor: pointer;
 
   span {
     font-weight: 500;
@@ -109,27 +112,30 @@ const Likes = (id) => {
 };
 
 const Card = ({ src, title, date, like, id }) => {
+  const navigate = useNavigate();
+  const handleClickDetail = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <>
       <Container>
-        <Link to={`/detail/${id}`} target="_blank">
-          <Image>
-            <img
-              src={
-                src !== "" || undefined || null
-                  ? src
-                  : "https://sandbank.io/img/thumbnail/thumbnail.png"
-              }
-              alt={`img${id}`}
-            />
-          </Image>
-        </Link>
+        <Image onClick={handleClickDetail}>
+          <img
+            src={
+              src !== "" || undefined || null
+                ? src
+                : "https://sandbank.io/img/thumbnail/thumbnail.png"
+            }
+            alt={`img${id}`}
+          />
+        </Image>
         <Content>
           <Title>{title}</Title>
           <Ect>
             <Date>{date}</Date>
             <Likes />
-            <Share>
+            <Share onClick={handleClickDetail}>
               <i className="fa-solid fa-arrow-up-from-bracket"></i>
               <span>공유</span>
             </Share>
