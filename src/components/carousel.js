@@ -2,6 +2,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 const StyledSlider = styled(Slider)`
   margin: 0 auto;
@@ -90,13 +91,8 @@ const Image = styled.img`
   }
 `;
 
-const ContentBox = styled.div`
-  margin: 0 1rem;
-  @media screen and  (max-width:450px) {
-    margin: 0 0.5rem;
-  }
-`
 const Title = styled.p`
+  margin-left: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
   height: 2.5rem;
@@ -106,6 +102,7 @@ const Title = styled.p`
   }
 `
 const ButtonBox = styled.div`
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -127,7 +124,7 @@ const Share = styled.p`
     font-size: 0.8rem;
   }
 `
-const Link = styled.a`
+const LinkTo = styled.a`
 `
 
 const Carousel = ({ posts }) => {
@@ -160,29 +157,41 @@ const Carousel = ({ posts }) => {
   };
 
   return (
-    <StyledSlider {...settings}>
+    <StyledSlider {...settings} >
       {posts.map(post => {
         return (
-          <div key={post.id}>
-            <ImageContainer>
-              <Link href={post.link} target="_blank" rel="noreferrer">
-                {post.image ? <Image src={post.image} /> : <Image src="/emptyImg.png" />}
-              </Link>
-              <ContentBox>
-                <Title>{post.title}</Title>
-                <ButtonBox>
-                  <Like>
-                    <i className="fa-solid fa-heart"></i>
-                    {' '}0
-                  </Like>
-                  <Link href="http://google.co.kr" target="_blank">
+          <div key={post.id} >
+            <ImageContainer >
+              {post.sector_id !== 1 ? (
+                <Link to={`/detail/${post.id}`} >
+                  {post.image ? <Image src={post.image} /> : <Image src="/emptyImg.png" />}
+                  <Title>{post.title}</Title>
+                </Link>) : (
+                <LinkTo href={post.link} target="_blank">
+                  {post.image ? <Image src={post.image} /> : <Image src="/emptyImg.png" />}
+                  <Title > {post.title}</Title>
+                </LinkTo>
+              )}
+              <ButtonBox>
+                <Like>
+                  <i className="fa-solid fa-heart"></i>
+                  {' '}0
+                </Like>
+                {post.sector_id !== 1 ? (
+                  <Link to={`/detail/${post.id}`} target="_blank">
                     <Share>
                       <i className="fa-solid fa-arrow-up-from-bracket"></i>
                       {'  '}공유
                     </Share>
-                  </Link>
-                </ButtonBox>
-              </ContentBox>
+                  </Link>) : (
+                  <LinkTo href={post.link} target="_blank">
+                    <Share>
+                      <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                      {'  '}공유
+                    </Share>
+                  </LinkTo>
+                )}
+              </ButtonBox>
             </ImageContainer>
           </div>
         );
