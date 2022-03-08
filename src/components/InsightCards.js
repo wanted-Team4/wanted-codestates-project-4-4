@@ -32,14 +32,11 @@ const Alert = styled.div`
   margin-bottom: 50px;
 `;
 
-const InsightCardList = () => {
+const InsightCards = () => {
   const data = useRecoilState(Data);
   const cardData = data[0].content;
   const insightData = cardData && cardData.filter((el) => el.sector_id === 1);
-
   const [more, setMore] = useState(false);
-  console.log("<", insightData[6].id);
-
   return (
     <>
       {more ? (
@@ -86,4 +83,4 @@ const InsightCardList = () => {
   );
 };
 
-export default InsightCardList;
+export default InsightCards;

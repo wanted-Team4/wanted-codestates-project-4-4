@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+//스타일
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +13,7 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 70%;
+  height: 100%;
 `;
 
 const Content = styled.div`
@@ -58,21 +59,69 @@ const Share = styled.div`
     color: #aaa;
   }
 `;
+
+//좋아요기능
+const Likes = (id) => {
+  let like_cnt = 0;
+  let like_bool = false;
+
+  if (localStorage.getItem(id)) {
+    const more = JSON.parse(localStorage.getItem(id))[0];
+    like_cnt += more;
+    like_bool = JSON.parse(localStorage.getItem(id))[1];
+  }
+
+  const [LikeNums, setLikeNums] = useState(like_cnt);
+  const [LikeBools, setLikeBools] = useState(like_bool);
+
+  const LikeClick = () => {
+    if (!LikeBools) {
+      /* 좋아요를 누르지 않은 경우 */
+      setLikeBools(!LikeBools);
+      setLikeNums(LikeNums + 1);
+      if (localStorage.getItem(id)) {
+        const more = JSON.parse(localStorage.getItem(id))[0];
+        localStorage.setItem(id, JSON.stringify([more + 1, true]));
+      } else {
+        localStorage.setItem(id, JSON.stringify([1, true]));
+      }
+    } else {
+      /* 좋아요를 누른 경우 */
+      setLikeBools(!LikeBools);
+      setLikeNums(LikeNums - 1);
+      const more = JSON.parse(localStorage.getItem(id))[0];
+      localStorage.setItem(id, JSON.stringify([more - 1, false]));
+    }
+  };
+  return (
+    <>
+      <Like onClick={LikeClick}>
+        <i className="fa-solid fa-heart"></i>
+        {LikeNums}
+      </Like>
+    </>
+  );
+};
+
 const Card = ({ src, title, date, like, id }) => {
   return (
     <>
       <Container>
         <Link to={`/detail/${id}`} target="_blank">
-          <Image src={src} alt={`img${id}`} />
+          <Image
+            src={
+              src !== "" || undefined || null
+                ? src
+                : "https://sandbank.io/img/thumbnail/thumbnail.png"
+            }
+            alt={`img${id}`}
+          />
         </Link>
         <Content>
           <Title>{title}</Title>
           <Ect>
             <Date>{date}</Date>
-            <Like>
-              <i className="fa-solid fa-heart"></i>
-              <span>{like}</span>
-            </Like>
+            <Likes />
             <Share>
               <i className="fa-solid fa-arrow-up-from-bracket"></i>
               <span>공유</span>
