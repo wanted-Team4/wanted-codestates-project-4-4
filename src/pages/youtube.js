@@ -9,12 +9,14 @@ const MainContainer = styled.div``;
 
 const Youtube = () => {
   const data = useRecoilValue(Data);
-  const MainPosts = data.content?.filter((el) => el.sector_id === 2 && el.like_top === 1);
+  const posts = data.content?.filter((el) => el.sector_id === 2 && el.like_top === 1);
+
+  console.log(posts)
 
   return (
     <MainContainer>
-      <NewPosts />
-      <YoutubeCards posts={MainPosts} />
+      <NewPosts posts={posts} />
+      <YoutubeCards />
     </MainContainer>
   );
 };
