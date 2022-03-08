@@ -11,9 +11,14 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
-  height: 100%;
+  height: 20vh;
+  background: #999;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Content = styled.div`
@@ -108,14 +113,16 @@ const Card = ({ src, title, date, like, id }) => {
     <>
       <Container>
         <Link to={`/detail/${id}`} target="_blank">
-          <Image
-            src={
-              src !== "" || undefined || null
-                ? src
-                : "https://sandbank.io/img/thumbnail/thumbnail.png"
-            }
-            alt={`img${id}`}
-          />
+          <Image>
+            <img
+              src={
+                src !== "" || undefined || null
+                  ? src
+                  : "https://sandbank.io/img/thumbnail/thumbnail.png"
+              }
+              alt={`img${id}`}
+            />
+          </Image>
         </Link>
         <Content>
           <Title>{title}</Title>
