@@ -9,11 +9,11 @@ const MainContainer = styled.div``;
 
 const Column = () => {
   const data = useRecoilValue(Data);
-  const MainPosts = data.content?.filter((el) => el.sector_id === 1 && el.like_top === 1);
+  const posts = data.content?.filter((el) => el.sector_id === 1 && el.like_top === 1);
 
   return (
     <MainContainer>
-      <NewPosts posts={MainPosts} />
+      <NewPosts posts={posts} />
       <ColumnCards />
     </MainContainer>
   );
