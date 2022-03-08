@@ -27,6 +27,7 @@ const YoutubeCards = () => {
   const data = useRecoilState(Data);
   const cardData = data[0].content;
   const youtubeData = cardData && cardData.filter((el) => el.sector_id === 2);
+
   const [more, setMore] = useState(true);
 
   return (
