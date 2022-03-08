@@ -88,7 +88,7 @@ const InsightCards = () => {
           </CardGrid>
           <Alert>끝 입니다</Alert>
 
-          <Button onClick={() => setMore(false)}>더보기</Button>
+          <Button onClick={() => setMore(false)}>접기</Button>
         </>
       ) : (
         <>
