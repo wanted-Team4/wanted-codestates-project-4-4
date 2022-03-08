@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -57,26 +58,29 @@ const Share = styled.div`
     color: #aaa;
   }
 `;
-const Card = ({ src, title, date, id, like }) => {
-  console.log({ like });
+const Card = ({ src, title, date, like, id }) => {
   return (
-    <Container>
-      <Image src={src} alt={`img${id}`} />
-      <Content>
-        <Title>{title}</Title>
-        <Ect>
-          <Date>{date}</Date>
-          <Like>
-            <i className="fa-solid fa-heart"></i>
-            <span>{like}</span>
-          </Like>
-          <Share>
-            <i className="fa-solid fa-arrow-up-from-bracket"></i>
-            <span>공유</span>
-          </Share>
-        </Ect>
-      </Content>
-    </Container>
+    <>
+      <Container>
+        <Link to={`/detail/${id}`} target="_blank">
+          <Image src={src} alt={`img${id}`} />
+        </Link>
+        <Content>
+          <Title>{title}</Title>
+          <Ect>
+            <Date>{date}</Date>
+            <Like>
+              <i className="fa-solid fa-heart"></i>
+              <span>{like}</span>
+            </Like>
+            <Share>
+              <i className="fa-solid fa-arrow-up-from-bracket"></i>
+              <span>공유</span>
+            </Share>
+          </Ect>
+        </Content>
+      </Container>
+    </>
   );
 };
 

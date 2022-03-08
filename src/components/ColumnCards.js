@@ -43,6 +43,7 @@ const ColumnCards = () => {
                   title={columnData[i].title}
                   date={columnData[i].upload_date}
                   like={columnData[i].like_cnt}
+                  id={columnData[i].id}
                   key={i}
                 />
               ))}
@@ -59,6 +60,7 @@ const ColumnCards = () => {
                   title={columnData[i].title}
                   date={columnData[i].upload_date}
                   like={columnData[i].like_cnt}
+                  id={columnData[i].id}
                   key={i}
                 />
               ))}

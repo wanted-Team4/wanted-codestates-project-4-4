@@ -47,6 +47,7 @@ const YoutubeCards = () => {
                     title={youtubeData[i].title}
                     date={youtubeData[i].upload_date}
                     like={youtubeData[i].like_cnt}
+                    id={youtubeData[i].id}
                     key={i}
                   />
                 ))}
@@ -64,6 +65,7 @@ const YoutubeCards = () => {
                     title={youtubeData[i].title}
                     date={youtubeData[i].upload_date}
                     like={youtubeData[i].like_cnt}
+                    id={youtubeData[i].id}
                     key={i}
                   />
                 </>

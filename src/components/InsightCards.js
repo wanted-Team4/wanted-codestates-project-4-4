@@ -38,6 +38,8 @@ const InsightCardList = () => {
   const insightData = cardData && cardData.filter((el) => el.sector_id === 1);
 
   const [more, setMore] = useState(false);
+  console.log("<", insightData[6].id);
+
   return (
     <>
       {more ? (
@@ -50,6 +52,7 @@ const InsightCardList = () => {
                   title={insightData[i].title}
                   date={insightData[i].upload_date}
                   like={insightData[i].like_cnt}
+                  id={insightData[i].id}
                   key={i}
                 />
               ))}
@@ -70,6 +73,7 @@ const InsightCardList = () => {
                     title={insightData[i].title}
                     date={insightData[i].upload_date}
                     like={insightData[i].like_cnt}
+                    id={insightData[i].id}
                     key={i}
                   />
                 ))}
