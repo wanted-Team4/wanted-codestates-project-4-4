@@ -3,9 +3,11 @@ import Carousel from "./carousel";
 
 const Container = styled.div`
   padding-top: 0.5rem;
+  box-sizing: border-box;
   margin-bottom: 4rem;
   width: 100%;
   height: 46rem;
+  background: rgba(184, 223, 248, 0.2);
 `;
 
 const Header = styled.div`

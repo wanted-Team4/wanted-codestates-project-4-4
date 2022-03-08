@@ -12,6 +12,8 @@ const StyledSlider = styled(Slider)`
   box-shadow: 1px 0px 9px 3px rgba(84, 84, 84, 0.41);
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+  background: #fff;
+
   @media screen and (max-width: 1500px) {
     width: 50rem;
   }
@@ -111,11 +113,17 @@ const ButtonBox = styled.div`
   justify-content: flex-end;
 `;
 const Like = styled.div`
-  width: 3rem;
-  color: #9d9d9d;
+  font-size: 0.9rem;
   cursor: pointer;
-  @media screen and (max-width: 450px) {
-    width: 2.5rem;
+  transition: transform ease 1s;
+  color: ${(props) => (props.color ? "#aaa" : "red")};
+  font-weight: 400;
+  padding-right: 20px;
+
+  .fa-heart {
+    color: ${(props) => (props.color ? "#aaa" : "red")};
+    margin-right: 3px;
+    transform: scale(1.2);
   }
 `;
 const Share = styled.p`
@@ -165,7 +173,7 @@ const Likes = (id) => {
   };
   return (
     <>
-      <Like onClick={LikeClick}>
+      <Like onClick={LikeClick} color={!LikeBools}>
         <i className="fa-solid fa-heart"></i>
         {LikeNums}
       </Like>
@@ -213,7 +221,7 @@ const Carousel = ({ posts }) => {
                   {post.image ? (
                     <Image src={post.image} />
                   ) : (
-                    <Image src="https://sandbank.io/img/thumbnail/thumbnail.png" />
+                    <Image src="https://miro.medium.com/max/1400/1*13aMsbLvJjlg4NLltX3nLA.jpeg" />
                   )}
                   <Title>{post.title}</Title>
                 </Link>
@@ -222,7 +230,7 @@ const Carousel = ({ posts }) => {
                   {post.image ? (
                     <Image src={post.image} />
                   ) : (
-                    <Image src="https://sandbank.io/img/thumbnail/thumbnail.png" />
+                    <Image src="https://miro.medium.com/max/1400/1*13aMsbLvJjlg4NLltX3nLA.jpeg" />
                   )}
                   <Title> {post.title}</Title>
                 </LinkTo>

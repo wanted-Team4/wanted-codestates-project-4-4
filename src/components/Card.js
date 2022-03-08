@@ -6,7 +6,13 @@ import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   border: 1px solid #aaa;
   border-radius: 10px;
+  box-shadow: 0px 0px 6px 5px #eee;
   overflow: hidden;
+  transition: all ease-in 0.2s;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 7px 3px #a9aaa5;
+  }
 `;
 
 const Image = styled.div`
@@ -53,14 +59,14 @@ const Date = styled.div`
 
 const Like = styled.div`
   font-size: 0.9rem;
-
+  cursor: pointer;
+  transition: transform ease 1s;
+  color: ${(props) => (props.color ? "#aaa" : "red")};
+  font-weight: 400;
   .fa-heart {
-    color: #aaa;
-  }
-  span {
-    font-weight: 500;
-    padding: 5px;
-    color: #aaa;
+    color: ${(props) => (props.color ? "#aaa" : "red")};
+    margin-right: 3px;
+    transform: scale(1.2);
   }
 `;
 
@@ -111,7 +117,7 @@ const Likes = (id) => {
   };
   return (
     <>
-      <Like onClick={LikeClick}>
+      <Like onClick={LikeClick} color={!LikeBools}>
         <i className="fa-solid fa-heart"></i>
         {LikeNums}
       </Like>
@@ -119,16 +125,23 @@ const Likes = (id) => {
   );
 };
 
-const Card = ({ src, title, date, like, id }) => {
+const Card = ({ src, title, date, like, id, sector }) => {
   const navigate = useNavigate();
-  const handleClickDetail = () => {
-    navigate(`/detail/${id}`);
+  const handleClickImage = () => {
+    if (sector !== 1) {
+      window.open(`/detail/${id}`);
+    } else {
+      navigate(`/detail/${id}`);
+    }
+  };
+  const handleClickShare = () => {
+    window.open(`/detail/${id}`);
   };
 
   return (
     <>
       <Container>
-        <Image onClick={handleClickDetail}>
+        <Image onClick={handleClickImage}>
           <img
             src={
               src !== "" || undefined || null
@@ -144,7 +157,7 @@ const Card = ({ src, title, date, like, id }) => {
             <Date>{date}</Date>
             <div>
               <Likes />
-              <Share onClick={handleClickDetail}>
+              <Share onClick={handleClickShare}>
                 <i className="fa-solid fa-arrow-up-from-bracket"></i>
                 <span>공유</span>
               </Share>
