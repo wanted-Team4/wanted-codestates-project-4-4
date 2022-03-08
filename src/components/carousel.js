@@ -87,6 +87,8 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 30rem;
+  object-fit: fill;
+  background: rgba(0, 0, 0, 0.7);
   @media screen and (max-width: 450px) {
     height: 22rem;
   }
@@ -211,7 +213,7 @@ const Carousel = ({ posts }) => {
                   {post.image ? (
                     <Image src={post.image} />
                   ) : (
-                    <Image src="/emptyImg.png" />
+                    <Image src="https://sandbank.io/img/thumbnail/thumbnail.png" />
                   )}
                   <Title>{post.title}</Title>
                 </Link>
@@ -220,7 +222,7 @@ const Carousel = ({ posts }) => {
                   {post.image ? (
                     <Image src={post.image} />
                   ) : (
-                    <Image src="/emptyImg.png" />
+                    <Image src="https://sandbank.io/img/thumbnail/thumbnail.png" />
                   )}
                   <Title> {post.title}</Title>
                 </LinkTo>

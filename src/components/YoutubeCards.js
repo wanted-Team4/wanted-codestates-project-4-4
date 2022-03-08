@@ -65,8 +65,8 @@ const YoutubeCards = () => {
   return (
     <>
       <Title>
+        <h1>유튜브</h1>
         <div>New</div>
-        <h1>인사이트</h1>
       </Title>
       {more ? (
         <>
