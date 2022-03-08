@@ -166,7 +166,7 @@ const Carousel = ({ posts }) => {
           <div key={post.id}>
             <ImageContainer>
               <Link href={post.link} target="_blank" rel="noreferrer">
-                <Image src={post.image} />
+                {post.image ? <Image src={post.image} /> : <Image src="/emptyImg.png" />}
               </Link>
               <ContentBox>
                 <Title>{post.title}</Title>
