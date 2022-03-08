@@ -25,7 +25,7 @@ const SubScribeContainer = styled.section`
   height: 100px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 100px auto;
   justify-content: space-around;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 20px;

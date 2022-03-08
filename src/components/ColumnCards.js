@@ -59,33 +59,34 @@ const Alert = styled.div`
 const ColumnCards = () => {
   const data = useRecoilState(Data);
   const cardData = data[0].content;
-  const columnData = cardData && cardData.filter((el) => el.sector_id === 3);
-  const [more, setMore] = useState(false);
+  const columnData = cardData && cardData.filter((el) => el.sector_id === 1);
+  const [more, setMore] = useState(true);
 
   return (
     <>
       <Title>
-        <div>New</div>
         <h1>알쓸B잡</h1>
+        <div>New</div>
       </Title>
       {more ? (
         <>
           <CardGrid>
             {columnData &&
-              columnData.map((el, i) => (
-                <Card
-                  src={columnData[i].image}
-                  title={columnData[i].title}
-                  date={columnData[i].upload_date}
-                  like={columnData[i].like_cnt}
-                  id={columnData[i].id}
-                  key={i}
-                />
-              ))}
+              columnData
+                .slice(0, 6)
+                .map((el, i) => (
+                  <Card
+                    src={columnData[i].image}
+                    title={columnData[i].title}
+                    date={columnData[i].upload_date}
+                    like={columnData[i].like_cnt}
+                    id={columnData[i].id}
+                    key={i}
+                  />
+                ))}
           </CardGrid>
-          <Alert>끝 입니다</Alert>
 
-          <Button onClick={() => setMore(false)}>접기</Button>
+          <Button onClick={() => setMore(false)}>더보기</Button>
         </>
       ) : (
         <>
@@ -102,7 +103,8 @@ const ColumnCards = () => {
                 />
               ))}
           </CardGrid>
-          <Button onClick={() => setMore(true)}>더보기</Button>
+          <Alert>끝 입니다</Alert>
+          <Button onClick={() => setMore(true)}>접기</Button>
         </>
       )}
     </>

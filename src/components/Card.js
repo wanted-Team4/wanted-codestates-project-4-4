@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 //스타일
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   border: 1px solid #aaa;
   border-radius: 10px;
   overflow: hidden;
@@ -13,7 +11,7 @@ const Container = styled.div`
 
 const Image = styled.div`
   width: 100%;
-  height: 20vh;
+  height: 12rem;
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 
@@ -29,23 +27,33 @@ const Content = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   padding-bottom: 20px;
   box-sizing: border;
+  @media screen and (max-width: 400px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const Ect = styled.div`
-  display: grid;
-  grid: auto-flow/ 1.5fr 0.5fr 0.5fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   box-sizing: border;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 const Date = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 const Like = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+
   .fa-heart {
     color: #aaa;
   }
@@ -57,10 +65,10 @@ const Like = styled.div`
 `;
 
 const Share = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #aaa;
   cursor: pointer;
-
+  margin-left: 10px;
   span {
     font-weight: 500;
     padding: 5px;
@@ -125,7 +133,7 @@ const Card = ({ src, title, date, like, id }) => {
             src={
               src !== "" || undefined || null
                 ? src
-                : "https://sandbank.io/img/thumbnail/thumbnail.png"
+                : "https://miro.medium.com/max/1400/1*13aMsbLvJjlg4NLltX3nLA.jpeg"
             }
             alt={`img${id}`}
           />
@@ -134,11 +142,13 @@ const Card = ({ src, title, date, like, id }) => {
           <Title>{title}</Title>
           <Ect>
             <Date>{date}</Date>
-            <Likes />
-            <Share onClick={handleClickDetail}>
-              <i className="fa-solid fa-arrow-up-from-bracket"></i>
-              <span>공유</span>
-            </Share>
+            <div>
+              <Likes />
+              <Share onClick={handleClickDetail}>
+                <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                <span>공유</span>
+              </Share>
+            </div>
           </Ect>
         </Content>
       </Container>
