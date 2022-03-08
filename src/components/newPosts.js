@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Carousel from "./carousel";
+import Carousel from "./Carousel";
 
 const Container = styled.div`
   padding-top: 0.5rem;
