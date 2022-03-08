@@ -4,10 +4,28 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const StyledSlider = styled(Slider)`
+  margin: 0 auto;
+  width: 65rem;
   -webkit-box-shadow: 1px 0px 9px 3px rgba(84,84,84,0.41);
   box-shadow: 1px 0px 9px 3px rgba(84,84,84,0.41);
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+  @media screen and  (max-width:1500px) {
+      width: 50rem;
+  }
+  @media screen and  (max-width:1300px) {
+      width: 40rem;
+  }
+  @media screen and  (max-width:1000px) {
+      width: 27rem;
+  }
+  @media screen and  (max-width:600px) {
+      width: 15rem;
+  }
+  @media screen and  (max-width:400px) {
+      width: 12rem;
+      height: 33rem;
+  }
 
   .slick-arrow {
     z-index: 10;
@@ -59,30 +77,32 @@ const ImageContainer = styled.div`
   margin: 0 auto;
   width:100%;
   height:30rem;
-  @media screen and  (max-width:400px) {
-    height:27rem;
+  @media screen and  (max-width:450px) {
+    height:22rem;
   }
 `;
 
 const Image = styled.img`
   width:100%;
   height:30rem;
-  @media screen and  (max-width:400px) {
-    height:20rem;
+  @media screen and  (max-width:450px) {
+    height:22rem;
   }
 `;
 
 const ContentBox = styled.div`
   margin: 0 1rem;
-  @media screen and  (max-width:400px) {
+  @media screen and  (max-width:450px) {
     margin: 0 0.5rem;
   }
 `
 const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 700;
-  @media screen and  (max-width:400px) {
+  height: 2.5rem;
+  @media screen and  (max-width:450px) {
       font-size: 1.1rem;
+      height: 6rem;
   }
 `
 const ButtonBox = styled.div`
@@ -93,7 +113,7 @@ const ButtonBox = styled.div`
 const Like = styled.div`
   width:3rem;
   color: #9D9D9D;
-  @media screen and  (max-width:400px) {
+  @media screen and  (max-width:450px) {
       width:2.5rem;
   }
 `
@@ -101,7 +121,7 @@ const Share = styled.p`
   width: 3rem;
   font-weight: 500;
   color: #9D9D9D;
-  @media screen and  (max-width:400px) {
+  @media screen and  (max-width:450px) {
     width: 3rem;
     font-weight: 500;
     font-size: 0.8rem;
@@ -145,7 +165,9 @@ const Carousel = ({ posts }) => {
         return (
           <div key={post.id}>
             <ImageContainer>
-              <Image src={post.url} />
+              <Link href={post.link} target="_blank" rel="noreferrer">
+                {post.image ? <Image src={post.image} /> : <Image src="/emptyImg.png" />}
+              </Link>
               <ContentBox>
                 <Title>{post.title}</Title>
                 <ButtonBox>

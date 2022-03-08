@@ -1,16 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import NewPosts from "../components/newPosts";
+import { useRecoilValue } from 'recoil';
+import { Data } from '../atom';
+import YoutubeCards from "../components/YoutubeCards";
 
-const MainContainer = styled.div`
-`
+const MainContainer = styled.div``;
 
 const Youtube = () => {
+  const data = useRecoilValue(Data);
+  const posts = data.content?.filter((el) => el.sector_id === 2 && el.like_top === 1);
+
+  console.log(posts)
+
   return (
     <MainContainer>
-      <NewPosts />
+      <NewPosts posts={posts} />
+      <YoutubeCards />
     </MainContainer>
-  )
+  );
 };
 
 export default Youtube;
