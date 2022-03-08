@@ -1,18 +1,16 @@
-# wanted-codestates-project-4-4
+# 🏦 디에이그라운드 | wanted-codestates-project-4-4
 
-## 🏦 디에이그라운드
+<br/>
+<a href="https://sandbankofficial.notion.site/2022-d02b010c1440411298b6474a2a591eb9">▶️ 과제링크</a> 
+<br/>
+<a href="https://deploy-preview-12--elastic-montalcini-17f3b2.netlify.app/
+">▶️ 배포링크</a>
 
-<a href="https://sandbankofficial.notion.site/2022-d02b010c1440411298b6474a2a591eb9">과제링크</a>
+### <br/>
 
-### 🏦 Stack
+### <br/>
 
-`react` `react-router-dom`
-`styled-components` `font-awesome`
-`recoil`
-
-### 🏦 Features
-
-### 🏦 Getting Start
+## 🏦 Getting Start
 
 1. `npm install`
 
@@ -20,11 +18,56 @@
 
 3. `npm start`
 
-### 🏦 Env
+### <br/>
 
-local.env 파일을 생성하고 `PORT=8000`을 넣어줍니다.
+### <br/>
 
-### 🏦 Commit Emoji
+## 🏦 Stack
+
+`react` `react-router-dom` `react-slick`
+`styled-components` `font-awesome`
+`recoil` `axios`
+`netlify`
+
+### <br/>
+
+### <br/>
+
+## 🏦 Features & Components
+
+1️⃣ **상단 Tab bar**
+
+2️⃣ **캐러셀**
+
+- 이미지 클릭시 상세페이지로 이동
+
+3️⃣ **메인리스트**
+
+- 더보기버튼
+- 이미지 클릭시 상세페이지로 이동
+
+4️⃣ **상세페이지**
+
+- 컨텐츠 상세페이지 및 영상 재생하기
+
+5️⃣ **좋아요**
+
+### <br/>
+
+### <br/>
+
+### <br/>
+
+## 🏦 LocalHost Port Setting
+
+**macOS** `export port 8888`<br/>
+**window** `set port 8888`
+
+### <br/>
+
+### <br/>
+
+## 🏦 Commit Emoji
 
 |   emoji    | commit message |       when to use it        |
 | :--------: | :------------: | :-------------------------: |
@@ -38,12 +81,12 @@ local.env 파일을 생성하고 `PORT=8000`을 넣어줍니다.
 
 ### <br/>
 
-### 🏦 Contribute
+## 🏦 Contribute
 
-|                        팀원                         |                   맡은역할                   |
-| :-------------------------------------------------: | :------------------------------------------: |
-|  <a href="https://github.com/sareum-k">강사름 </a>  |           새로올라왔어요 컴포넌트            |
-| <a href="https://github.com/KooTaehyeon">김태현</a> | API연결 및 데이터 가져오기, 좋아요/구독 기능 |
-|   <a href="https://github.com/sunysty">석지선</a>   |               리스트 컴포넌트                |
-|   <a href="https://github.com/slobbie">정해석</a>   |     전체 레이아웃 및 상단 Tab, 구독 기능     |
-|  <a href="https://github.com/hasunghwa">하성화</a>  |                  상세페이지                  |
+|                        팀원                         |                    맡은역할                     |
+| :-------------------------------------------------: | :---------------------------------------------: |
+|  <a href="https://github.com/sareum-k">강사름 </a>  |     캐러셀 / 새로올라왔어요 컴포넌트 / 로딩     |
+| <a href="https://github.com/KooTaehyeon">구태현</a> | API연결 및 데이터 전역에 저장하기 / 좋아요 버튼 |
+|   <a href="https://github.com/sunysty">석지선</a>   |       더보기 / 카드리스트 컴포넌트 / 배포       |
+|   <a href="https://github.com/slobbie">정해석</a>   |       전체 레이아웃 / 상단 Tab / 구독하기       |
+|  <a href="https://github.com/hasunghwa">하성화</a>  |                   상세 페이지                   |
