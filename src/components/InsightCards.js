@@ -8,20 +8,19 @@ import Title from "./Title";
 
 const Button = styled.div`
   transition: all ease 0.25s;
-
-  background: #669cff;
-  color: #fff;
+  background: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  border: 1px solid #669cff;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 400;
   width: 30%;
   height: 60px;
-  margin: 0 auto;
-  border-radius: 10px;
+  margin: 50px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.1s ease-out;
 `;
 
 const InsightCards = () => {
@@ -50,8 +49,9 @@ const InsightCards = () => {
                   />
                 ))}
           </CardGrid>
-
-          <Button onClick={() => setMore(false)}>더보기</Button>
+          <Button onClick={() => setMore(false)} bg={"#669cff"} color={"#fff"}>
+            더보기
+          </Button>
         </>
       ) : (
         <>
@@ -69,8 +69,9 @@ const InsightCards = () => {
                 />
               ))}
           </CardGrid>
-
-          <Button onClick={() => setMore(true)}>접기</Button>
+          <Button onClick={() => setMore(true)} bg={"#fff"} color={"#669cff"}>
+            접기
+          </Button>
         </>
       )}
     </>

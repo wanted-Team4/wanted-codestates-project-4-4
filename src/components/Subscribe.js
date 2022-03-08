@@ -21,7 +21,7 @@ function Subscribe() {
 export default Subscribe;
 
 const SubScribeContainer = styled.section`
-  width: 58%;
+  width: 60%
   height: 100px;
   display: flex;
   align-items: center;
@@ -29,6 +29,7 @@ const SubScribeContainer = styled.section`
   justify-content: space-around;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+  padding:10px;
   @media screen and (max-width: 768px) {
     box-shadow: 0 0 0px rgba(0, 0, 0, 0);
   }
