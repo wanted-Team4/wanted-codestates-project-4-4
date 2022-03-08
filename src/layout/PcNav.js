@@ -35,7 +35,7 @@ const PcNav = () => {
             onClick={() => tabClickHandler(1)}
           >
             {columnMetch && <Slider layoutId="Slider" />}
-            알쓸B동
+            알쓸B잡
           </li>
         </Link>
         <Link to="/insight">
