@@ -38,6 +38,7 @@ const Tag = styled.div`
 `
 
 const NewPosts = ({ posts }) => {
+  console.log(posts)
   return (
     <Container>
       <Header>
