@@ -21,7 +21,6 @@ const Detail = ({}) => {
     }
   }, [atomData]);
 
-  console.log(detail);
   return (
     <Warraper>
       {loading ? (
@@ -48,7 +47,7 @@ const Detail = ({}) => {
             <Title>{detail[0].title}</Title>
             <Body>{detail[0].body}</Body>
             <LikeAndShare>
-              <Like id={detail.id} likeCnt={detail.likeCnt}></Like>
+              <Like id={detail[0].id} likeCnt={detail[0].likeCnt}></Like>
               <Share>
                 <i
                   style={{ verticalAlign: "baseline" }}
