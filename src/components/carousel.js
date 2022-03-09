@@ -125,7 +125,7 @@ const Share = styled.p`
 `;
 const LinkTo = styled.a``;
 
-const Carousel = ({ posts }) => {
+const Carousel = ({ posts, id, like }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -153,7 +153,7 @@ const Carousel = ({ posts }) => {
       },
     ],
   };
-
+  console.log(id);
   return (
     <StyledSlider {...settings}>
       {posts.map((post) => {
@@ -180,7 +180,7 @@ const Carousel = ({ posts }) => {
                 </LinkTo>
               )}
               <ButtonBox>
-                <Like id={posts.id} likeCnt={posts.likeCnt} />
+                <Like id={post.id} likeCnt={post.likeCnt} />
                 {post.sector_id !== 1 ? (
                   <Link to={`/detail/${post.id}`} target="_blank">
                     <Share>
