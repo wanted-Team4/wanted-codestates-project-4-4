@@ -34,7 +34,7 @@ const ColumnCards = () => {
 
   return (
     <Container>
-      <Title type={"Column"} name={"알쓸B잡"} />
+      <Title name={"알쓸B잡"} tag={"Column"} bg={"#669cff"} />
       {more ? (
         <>
           <CardGrid>

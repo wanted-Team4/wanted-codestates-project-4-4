@@ -14,6 +14,9 @@ const Container = styled.div`
   @media screen and (max-width: 767px) {
     display: grid;
     grid: auto-flow / repeat(1, 1fr);
+    h1 {
+      display: none;
+    }
   }
 `;
 
