@@ -30,7 +30,6 @@ const ColumnCards = () => {
   const cardData = data[0].content;
   const columnData = cardData && cardData.filter((el) => el.sector_id === 1);
   const [more, setMore] = useState(true);
-  console.log(columnData);
 
   return (
     <Container>
