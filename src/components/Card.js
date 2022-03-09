@@ -5,14 +5,10 @@ import Like from "./Like";
 //스타일
 const Container = styled.div`
   border: 1px solid #aaa;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 0px 6px 5px #eee;
   overflow: hidden;
   transition: all ease-in 0.2s;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 7px 3px #a9aaa5;
-  }
 `;
 
 const Image = styled.div`
