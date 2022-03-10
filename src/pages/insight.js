@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NewPosts from "../components/NewPosts";
+import NewPosts from "../components/newPosts";
 import { useRecoilValue } from "recoil";
 import { Data } from "../atom";
 import InsightCards from "../components/InsightCards";

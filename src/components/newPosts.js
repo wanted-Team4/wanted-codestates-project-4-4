@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Carousel from "./Carousel";
+import Carousel from "./carousel";
 
 const Container = styled.div`
   padding-top: 0.5rem;
@@ -9,7 +9,6 @@ const Container = styled.div`
   height: 46rem;
   background: rgba(184, 223, 248, 0.2);
 `;
-
 const Header = styled.div`
   display: flex;
   align-items: center;
