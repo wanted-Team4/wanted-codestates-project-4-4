@@ -2,7 +2,7 @@
 
 #### <a href="https://sandbankofficial.notion.site/2022-d02b010c1440411298b6474a2a591eb9">▶️ 과제링크</a> 
 
-#### <a href="https://deploy-preview-12--elastic-montalcini-17f3b2.netlify.app/">▶️ 배포링크</a>
+#### <a href="https://elastic-montalcini-17f3b2.netlify.app/">▶️ 배포링크</a>
 
 <br/>
 <br/>
