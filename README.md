@@ -1,37 +1,32 @@
-# 🏦 디에이그라운드 | wanted-codestates-project-4-4
+## 🏦 디에이 그라운드(Sand Bank)
+
+#### <a href="https://sandbankofficial.notion.site/2022-d02b010c1440411298b6474a2a591eb9">▶️ 과제링크</a> 
+
+#### <a href="https://deploy-preview-12--elastic-montalcini-17f3b2.netlify.app/">▶️ 배포링크</a>
 
 <br/>
-<a href="https://sandbankofficial.notion.site/2022-d02b010c1440411298b6474a2a591eb9">▶️ 과제링크</a> 
 <br/>
-<a href="https://deploy-preview-12--elastic-montalcini-17f3b2.netlify.app/
-">▶️ 배포링크</a>
 
-### <br/>
+## 🎉 Getting Start
+```
+$git clone https://github.com/wanted-Team4/wanted-codestates-project-4-4.git
 
-### <br/>
+$npm install
 
-## 🏦 Getting Start
+$npx prettier --write .
 
-1. `npm install`
+$npm start
+```
+<br/>
 
-2. `npx prettier --write .`
-
-3. `npm start`
-
-### <br/>
-
-### <br/>
-
-## 🏦 Stack
+## ⚒ Stack
 
 `react` `react-router-dom` `react-slick`
 `styled-components` `font-awesome`
 `recoil` `axios`
 `netlify`
 
-### <br/>
-
-### <br/>
+<br/> <br/>
 
 ## 🏦 Features & Components
 
