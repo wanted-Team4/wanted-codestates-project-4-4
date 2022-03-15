@@ -30,11 +30,10 @@ const ColumnCards = () => {
   const cardData = data[0].content;
   const columnData = cardData && cardData.filter((el) => el.sector_id === 1);
   const [more, setMore] = useState(true);
-  console.log(columnData);
 
   return (
     <Container>
-      <Title type={"Column"} name={"알쓸B잡"} />
+      <Title name={"알쓸B잡"} tag={"Column"} bg={"#669cff"} />
       {more ? (
         <>
           <CardGrid>

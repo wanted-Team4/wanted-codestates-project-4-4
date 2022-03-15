@@ -30,7 +30,7 @@ const InsightCards = () => {
   const [more, setMore] = useState(true);
   return (
     <>
-      <Title name="인사이트" type="column" />
+      <Title name="어떻게 투자할까" tag="Report" bg="#9979C1" />
       {more ? (
         <>
           <CardGrid>

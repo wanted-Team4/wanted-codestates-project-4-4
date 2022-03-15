@@ -32,7 +32,7 @@ const YoutubeCards = () => {
 
   return (
     <>
-      <Title name={"유튜브"} type={"News"} />
+      <Title name={"블록체인 NOW"} tag={"YouTube"} bg={"red"} />
       {more ? (
         <>
           <CardGrid>
